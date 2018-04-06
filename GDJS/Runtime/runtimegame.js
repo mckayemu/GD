@@ -46,6 +46,11 @@ gdjs.RuntimeGame = function(data, spec) {
 
   //Allow to specify an external layout to insert in the first scene:
   this._injectExternalLayout = spec.injectExternalLayout || '';
+
+  //Optional client to connect to a debugger:
+  this._debuggerClient = gdjs.DebuggerClient
+    ? new gdjs.DebuggerClient(this)
+    : null;
 };
 
 gdjs.RuntimeGame.prototype.getRenderer = function() {
